@@ -8,17 +8,6 @@ if (menuBtn && mnav) {
   mnav.querySelectorAll('a').forEach(a => a.addEventListener('click', () => mnav.classList.remove('open')));
 }
 
-// Active section highlight in nav while scrolling
-const sections = document.querySelectorAll('section[id]');
-const navLinks = document.querySelectorAll('.nav a[href^="#"]');
-const setActive = (id) => {
-  navLinks.forEach(l => l.classList.toggle('active', l.getAttribute('href') === `#${id}`));
-};
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach(e => { if (e.isIntersecting) setActive(e.target.id); });
-}, { rootMargin: '-40% 0px -55% 0px' });
-sections.forEach(s => observer.observe(s));
-
 // Reveal-on-scroll for cards
 const revealEls = document.querySelectorAll('.program-card, .timeline-item, .gallery-grid img, .about-card');
 revealEls.forEach(el => {
